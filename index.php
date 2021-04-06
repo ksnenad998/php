@@ -23,8 +23,8 @@
             <h1 class="login-title">Prijavi se</h1>
             <form action="#!">
               <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="email@primer.com">
+                <label for="username">Korisničko ime</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Unesite korisničko ime">
               </div>
               <div class="form-group mb-4">
                 <label for="password">Lozinka</label>
@@ -33,7 +33,7 @@
               <input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login">
             </form>
             <a href="#!" class="forgot-password-link">Zaboravili ste lozinku?</a>
-            <p class="login-wrapper-footer-text">Nemaš profil? <a href="#!" class="text-reset">Registruj se</a></p>
+            <p class="login-wrapper-footer-text">Nemaš profil? <a href="register.php" class="text-reset">Registruj se</a></p>
           </div>
         </div>
         <div class="col-sm-7 col-lg-6 col-md-6 px-0 d-none d-sm-block justify-content-center">
@@ -42,8 +42,11 @@
       </div>
     </div>
   </main>
+ 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/login.js"></script>
 </body>
 </html>
