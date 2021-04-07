@@ -1,3 +1,11 @@
+<?php
+  include "phpvendors/services/init.php";
+
+  if (!logged_in()){
+    redirect('login.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
