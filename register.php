@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/login.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/vendors/sweetalert.css">
 </head>
 <body>
   <main>
@@ -21,7 +23,7 @@
           </div>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Registracija</h1>
-            <form method="post" id="reg-form" enctype="multipart/form-data">
+            <form method="post" id="reg_form" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="username">Unesite korisničko ime</label>
                 <input type="text" name="username" id="username" class="form-control" placeholder="" tabindex="1" onblur="$(this).valid()">
@@ -36,7 +38,7 @@
               </div>
               <div class="form-group mb-4">
                 <label for="rep-password">Potvrdite lozinku</label>
-                <input type="password" name="rep-password" id="rep-password" class="form-control" placeholder="xxxxxxx">
+                <input type="password" name="rep_password" id="rep_password" class="form-control" placeholder="xxxxxxx">
               </div>
               <input name="reg-btn" id="reg-btn" class="btn btn-block login-btn" type="submit" value="Registracija" tabindex="4" onblur="$(this).valid()">
             </form>
@@ -53,6 +55,9 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="assets/js/register.js"></script>
+  <script src="assets/vendors/sweetalert.js"></script>
+  <script src="assets/js/jquery.validate.min.js"></script>
 
   <script src="assets/js/login.js"></script>
 </body>

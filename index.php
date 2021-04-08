@@ -1,8 +1,10 @@
 <?php
   include "phpvendors/services/init.php";
 
-  if (!logged_in()){
-    redirect('login.php');
+  $user_class = new USER();
+
+  if (!$user_class->logged_in()){
+    $user_class->redirect('register.php');
   }
 ?>
 

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    const $registerForm = $('#register-form')
+    const $registerForm = $('#reg_form')
     let validator = void(0)
 
     if ($registerForm.length) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
                     minlength: 3,
                     maxlength: 25
                 },
-                confirm_password: {
+                rep_password: {
                     required: true,
                     minlength: 3,
                     maxlength: 25
@@ -41,8 +41,8 @@ $(document).ready(function() {
                     minlength: 'Šifra mora biti duže od 3 karaktera.',
                     maxlength: 'Šifra mora biti kraće od 25 karaktera.'
                 },
-                confirm_password: {
-                    required: 'Unesite Vašu šifru.',
+                rep_password: {
+                    required: 'Potvrdite Vašu šifru.',
                     minlength: 'Šifra mora biti duže od 3 karaktera.',
                     maxlength: 'Šifra mora biti kraće od 25 karaktera.'
                 }
@@ -50,7 +50,7 @@ $(document).ready(function() {
             submitHandler: function submitHandler(form) {
                 event.preventDefault();
                 $.ajax({
-                    url: 'back-assets/loginsys/services/register_service.php',
+                    url: 'register.php',
                     method: 'POST',
                     data: new FormData(form),
                     contentType: false,

@@ -68,6 +68,16 @@ body {
     font-weight: normal;
 }
 
+.form-control .error{
+    border: none;
+    border-bottom: 1px solid red;
+    border-radius: 0;
+    padding: 9px 5px;
+    min-height: 40px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
 .login-wrapper .form-control::-webkit-input-placeholder {
     color: #b0adad;
 }
@@ -138,6 +148,15 @@ body {
     object-fit: cover;
     -o-object-position: center;
     object-position: center;
+}
+
+label .error {
+color: red;
+}
+
+.form-control .error {
+    border: 2px solid;
+    border-color: red;
 }
 
 
