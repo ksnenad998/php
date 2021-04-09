@@ -40,6 +40,7 @@ function password_match($password, $confirm_password){
     $username = escape($username);
     $email    = escape($email);
     $password = escape($password);
+    //$date = date('Y-m-d H:i:s');
     //$headers  = "From: acasax@gmail.com"; //no-replay@virtualcoworking.com
 
     if (email_exist($email)){
@@ -74,4 +75,36 @@ function password_match($password, $confirm_password){
     }
 
  }
+
+ function login_user($username, $password, $user_class){
+    //dodaj za tipove korisnika
+
+        $username = escape($username);
+        $password = escape($password);
+
+        $login_sql = "SELECT id, password FROM user WHERE username = '$username' AND password =  '$password' ";
+        $result = query($login_sql);
+        if(row_count($result) != 0){
+            $row = fetch_array($result);
+            $db_password = $row['password'];
+            
+            if (md5($password) == $db_password){
+                /*
+                if ($remember == 1){
+                    unset($_COOKIE['email']);
+                    setcookie("email", $email, time() + 86400, '/');
+                    $_SESSION["email"] = $email;
+                    $_COOKIE["email"] = $email;
+                }
+                $_SESSION['user_login'] = true;
+                */
+                $user_class->returnJSON("OK","Uspešno ste se prijavili!");
+            }else{
+                $user_class->returnJSON("ERROR","Šifra koju ste uneli nije tačna!");
+            }
+    
+        }else {
+            $user_class->returnJSON("ERROR","Korisnik sa ovim username-om ne postoji!");
+        }
+    }
 ?>

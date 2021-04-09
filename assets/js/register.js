@@ -93,39 +93,33 @@ $(document).ready(function() {
         })
     }
 
-    const $loginForm = $('#login-form')
+    const $loginForm = $('#login_form')
     let validatorL = void(0)
 
     if ($loginForm.length) {
         validatorL = $loginForm.validate({
             rules: {
 
-                email: {
+                username: {
                     required: true,
-                    email: true
                 },
                 password: {
                     required: true,
-                    minlength: 3,
-                    maxlength: 25
                 }
             },
             messages: {
 
-                email: {
-                    required: 'Unesite Vašu e-mail adresu.',
-                    email: 'Vaš e-mail nije validan'
+                username: {
+                    required: 'Unesite Vaš username.',
                 },
                 password: {
                     required: 'Unesite Vašu šifru.',
-                    minlength: 'Šifra mora biti duže od 3 karaktera.',
-                    maxlength: 'Šifra mora biti kraće od 25 karaktera.'
                 }
             },
             submitHandler: function submitHandler(form) {
                 event.preventDefault();
                 $.ajax({
-                    url: 'back-assets/loginsys/services/login_service.php',
+                    url: 'phpvendors/controller/login_controller.php',
                     method: 'POST',
                     data: new FormData(form),
                     contentType: false,
