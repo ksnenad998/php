@@ -4,13 +4,15 @@
     $username = 'root';
     $password = '';
 
-    try 
+
+    try
     {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        echo "Connected at $dbname at $host successfully";
-    }
-    catch (PDOException $pe)
-    {
-        die("Could not connect to the database $dbname: " . $pe->getMessage());
-    }
-?>
+     $db = new PDO('mysql:host=localhost; dbname=telekom;    charset=utf8', 'root', ''); 
+       $db->setAttribute(PDO::ATTR_ERRMODE,    PDO::ERRMODE_EXCEPTION); 
+       }
+             catch (PDOException $ex)
+   {
+       echo error("Cannot connect to the database!");
+   die();
+       }
+   ?>

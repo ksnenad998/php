@@ -1,7 +1,9 @@
 <?php
-    include "../services/init.php";
-    include "../../services/class.user.php";
+    include "../services/dbconnection.php";
+    //include "../services/dbconfig.php";
+    include "../services/class.user.php";
     include "../services/register_service.php";
+    include "../services/dbmanipulate.php";
     $user_class = new USER();
     
     $username         = $_POST['username'];

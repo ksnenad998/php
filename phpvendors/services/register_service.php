@@ -1,13 +1,12 @@
 <?php
-include "dbconnection.php";
-include "dbconfig.php";
-include "dbmanipulate.php";
-include "dbmanipulate.php";
- /* Provera email-a u bazu */
+
+
+/* Provera email-a u bazu */
 function email_exist($email){
 
-    $sql = "SELECT id FROM telekom.user WHERE email = $email";
+    $sql = "SELECT id FROM telekom.user WHERE mail =  $email ";
     $result = query($sql);
+    
     if(row_count($result) > 0){
         return true;
     } else {
@@ -18,7 +17,7 @@ function email_exist($email){
 /* Provera username-a u bazu */
 function user_exist($username){
 
-    $sql = "SELECT id FROM telekom.user WHERE username = $username";
+    $sql = "SELECT id FROM telekom.user WHERE username =  $username ";
     $result = query($sql);
     if(row_count($result) > 0){
         return true;
@@ -44,10 +43,10 @@ function password_match($password, $confirm_password){
     //$headers  = "From: acasax@gmail.com"; //no-replay@virtualcoworking.com
 
     if (email_exist($email)){
-        $user_class->returnJSON("ERROR","Korisnik sa emailom: " .$email . " već postoji.");
+        $user_class->returnJSON("ERROR","Korisnik sa emailom:  $email  već postoji.");
         return false;
     } else if (user_exist($username)){
-        $user_class->returnJSON("ERROR","Korisnik sa  korisničkim imenom:" .$username . " već postoji.");
+        $user_class->returnJSON("ERROR","Korisnik sa  korisničkim imenom: " . $username . " već postoji.");
         return false;
     } else if (password_match($password, $confirm_password)){
         $user_class->returnJSON("ERROR","Niste dobro potvrdili šifru.");
@@ -61,9 +60,11 @@ function password_match($password, $confirm_password){
 
         $register_sql = "INSERT INTO user (username, mail, password) VALUE ($username, $email, '$password')";
         query($register_sql);
+  
         confirm($register_sql);
 
-        send_email($email, $subject, $msg, $headers); // proveravaj jer vraca t/f zbog poruke i dodaj na domen za proveru slanja mejla
+
+        //send_email($email, $subject, $msg, $headers); // proveravaj jer vraca t/f zbog poruke i dodaj na domen za proveru slanja mejla
 
         $user_class->returnJSON("OK","Uspešno ste se registrovali.");
                                       /*Lik za potvrdu registracije 

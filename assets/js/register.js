@@ -50,7 +50,7 @@ $(document).ready(function() {
             submitHandler: function submitHandler(form) {
                 event.preventDefault();
                 $.ajax({
-                    url: 'register.php',
+                    url: 'phpvendors/controller/register_controller.php',
                     method: 'POST',
                     data: new FormData(form),
                     contentType: false,
@@ -63,9 +63,9 @@ $(document).ready(function() {
                             swal({
                                 title: "Greška",
                                 text: str,
-                                timer: 2500,
+                                //timer: 2500,
                                 showCancelButton: false,
-                                showConfirmButton: false,
+                                showConfirmButton: true,
                                 type: "error"
                             });
                             return;

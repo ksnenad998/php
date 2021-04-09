@@ -2,19 +2,18 @@
 
 //Osnovne funkcije koje frse direktnu manipulaciju sa podacima iz baze
 include "dbconnection.php";
-include "dbconfig.php";
 
 function query($query)
 {
-    global $con;
+    global $db;
     try {
-        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $con->beginTransaction();
-        $query = $con->prepare($query);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db->beginTransaction();
+        $query = $db->prepare($query);
         $query->execute();
-        $con->commit();
+        $db->commit();
     } catch (Exception $e) {
-        $con->rollBack();
+        $db->rollBack();
         echo "Failed: " . $e->getMessage();
     } finally {
         return $query;
@@ -24,22 +23,22 @@ function query($query)
 
     function escape($string)
     {
-        global $con;
-        return $con->quote($string);
+        global $db;
+        return $db->quote($string);
     }
 
     function fetch_array($result)
     {
-        global $con;
+        global $db;
         $row = $result->fetch();
         return $row;
     }
 
     function confirm($result)
     {
-        global $con;
+        global $db;
         if (!$result) {
-            die("FAILED" . mysqli_error($con));
+            die("FAILED" . mysqli_error($db));
         }
     }
 

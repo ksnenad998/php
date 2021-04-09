@@ -2,10 +2,10 @@
 class Database
 {
 
-    private $host = "127.0.0.1";
-    private $db_name = "vikau";
+    private $host = "localhost";
+    private $db_name = "telekom";
     private $username = "root";
-    private $password = "Podlogazamis123!";
+    private $password = "";
     public $conn;
 
     public function dbConnection()
